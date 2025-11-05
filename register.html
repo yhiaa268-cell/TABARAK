@@ -10,7 +10,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
@@ -21,7 +21,7 @@
             align-items: center;
             padding: 20px;
         }
-        
+
         .container {
             background: white;
             border-radius: 10px;
@@ -30,27 +30,27 @@
             width: 100%;
             padding: 40px;
         }
-        
+
         .header {
             text-align: center;
             margin-bottom: 40px;
         }
-        
+
         .header h1 {
-            color: #d4af37;
+            color: #1a1a2e;
             font-size: 28px;
             margin-bottom: 10px;
         }
-        
+
         .header p {
             color: #666;
             font-size: 14px;
         }
-        
+
         .form-group {
             margin-bottom: 20px;
         }
-        
+
         label {
             display: block;
             margin-bottom: 8px;
@@ -58,7 +58,7 @@
             font-weight: 500;
             font-size: 14px;
         }
-        
+
         input, select {
             width: 100%;
             padding: 12px;
@@ -66,316 +66,250 @@
             border-radius: 5px;
             font-size: 14px;
             transition: border-color 0.3s;
-            font-family: inherit;
         }
-        
+
         input:focus, select:focus {
             outline: none;
-            border-color: #d4af37;
-            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+            border-color: #4CAF50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
         }
-        
-        .password-strength {
-            font-size: 12px;
-            margin-top: 5px;
-            padding: 8px;
-            border-radius: 3px;
-            display: none;
-        }
-        
-        .password-strength.weak {
-            background: #ffebee;
-            color: #c62828;
-            display: block;
-        }
-        
-        .password-strength.medium {
-            background: #fff3e0;
-            color: #e65100;
-            display: block;
-        }
-        
-        .password-strength.strong {
-            background: #e8f5e9;
-            color: #2e7d32;
-            display: block;
-        }
-        
-        .error {
-            color: #c62828;
-            font-size: 12px;
-            margin-top: 5px;
-            display: none;
-        }
-        
-        .error.show {
-            display: block;
-        }
-        
-        .submit-btn {
+
+        button {
             width: 100%;
             padding: 12px;
-            background: linear-gradient(135deg, #d4af37 0%, #c9a227 100%);
-            color: #1a1a2e;
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
             border: none;
             border-radius: 5px;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-        
-        .submit-btn:hover {
+
+        button:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 5px 20px rgba(76, 175, 80, 0.4);
         }
-        
-        .submit-btn:disabled {
+
+        button:disabled {
             opacity: 0.6;
             cursor: not-allowed;
-            transform: none;
         }
-        
-        .login-link {
-            text-align: center;
-            margin-top: 20px;
-            color: #666;
-            font-size: 14px;
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-top: 8px;
         }
-        
-        .login-link a {
-            color: #d4af37;
-            text-decoration: none;
-            font-weight: 600;
+
+        input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+            cursor: pointer;
         }
-        
-        .login-link a:hover {
-            text-decoration: underline;
+
+        .checkbox-group label {
+            margin-bottom: 0;
+            font-weight: 400;
+            cursor: pointer;
         }
-        
-        .success-message {
-            background: #e8f5e9;
-            color: #2e7d32;
+
+        .error {
+            color: #d32f2f;
+            font-size: 13px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .error.show {
+            display: block;
+        }
+
+        .success {
+            background-color: #4CAF50;
+            color: white;
             padding: 15px;
             border-radius: 5px;
             margin-bottom: 20px;
             display: none;
-            border-left: 4px solid #2e7d32;
+            text-align: center;
         }
-        
-        .success-message.show {
+
+        .success.show {
             display: block;
         }
-        
-        .nav-link {
-            text-align: left;
-            margin-bottom: 20px;
-        }
-        
-        .nav-link a {
-            color: #d4af37;
-            text-decoration: none;
-            font-size: 14px;
-            display: inline-flex;
-            align-items: center;
-        }
-        
-        .nav-link a:hover {
-            text-decoration: underline;
-        }
-        
-        @media (max-width: 600px) {
-            .container {
-                padding: 30px 20px;
-            }
-            
-            .header h1 {
-                font-size: 24px;
-            }
+
+        .info {
+            background-color: #e3f2fd;
+            color: #1565c0;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 13px;
+            margin-top: 5px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="nav-link">
-            <a href="/" onclick="history.back(); return false;">← Back</a>
-        </div>
-        
         <div class="header">
-            <h1>Golden Investments</h1>
-            <p>Create Your Investment Account</p>
+            <h1>Create Account</h1>
+            <p>Join Golden Investments Today</p>
         </div>
-        
-        <div class="success-message" id="successMessage">
-            Account created successfully! Redirecting...
-        </div>
-        
-        <form id="registerForm" onsubmit="handleSubmit(event)">
+
+        <div id="successMessage" class="success">Registration successful! Redirecting...</div>
+
+        <form id="registrationForm" onsubmit="handleSubmit(event)">
+            <!-- First Name -->
             <div class="form-group">
-                <label for="firstName">First Name *</label>
-                <input type="text" id="firstName" name="firstName" required>
-                <div class="error" id="firstNameError"></div>
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" placeholder="Enter your first name" required>
+                <div id="firstNameError" class="error"></div>
             </div>
-            
+
+            <!-- Last Name -->
             <div class="form-group">
-                <label for="lastName">Last Name *</label>
-                <input type="text" id="lastName" name="lastName" required>
-                <div class="error" id="lastNameError"></div>
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" placeholder="Enter your last name" required>
+                <div id="lastNameError" class="error"></div>
             </div>
-            
+
+            <!-- Email -->
             <div class="form-group">
-                <label for="email">Email Address *</label>
-                <input type="email" id="email" name="email" required>
-                <div class="error" id="emailError"></div>
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+                <div id="emailError" class="error"></div>
             </div>
-            
+
+            <!-- Investment Type -->
             <div class="form-group">
-                <label for="investmentType">Investment Type *</label>
-                <select id="investmentType" name="investmentType" required>
+                <label for="investmentType">Investment Type</label>
+                <select id="investmentType" required>
                     <option value="">-- Select Investment Type --</option>
-                    <option value="gold">Gold</option>
-                    <option value="silver">Silver</option>
-                    <option value="platinum">Platinum</option>
-                    <option value="diamond">Diamond</option>
-                    <option value="portfolio">Mixed Portfolio</option>
+                    <option value="Growth">Growth Portfolio</option>
+                    <option value="Balanced">Balanced Portfolio</option>
+                    <option value="Conservative">Conservative Portfolio</option>
                 </select>
-                <div class="error" id="investmentTypeError"></div>
+                <div id="investmentTypeError" class="error"></div>
             </div>
-            
+
+            <!-- Initial Investment Amount -->
             <div class="form-group">
-                <label for="investmentAmount">Initial Investment Amount ($) *</label>
-                <input type="number" id="investmentAmount" name="investmentAmount" min="1000" step="100" required>
-                <div class="error" id="investmentAmountError"></div>
+                <label for="investmentAmount">Initial Investment Amount ($)</label>
+                <input type="number" id="investmentAmount" min="50" placeholder="Minimum $50" required>
+                <div class="info">Minimum investment: $50</div>
+                <div id="investmentAmountError" class="error"></div>
             </div>
-            
+
+            <!-- Password -->
             <div class="form-group">
-                <label for="password">Password *</label>
-                <input type="password" id="password" name="password" required onchange="checkPasswordStrength()">
-                <div class="password-strength" id="passwordStrength"></div>
-                <div class="error" id="passwordError"></div>
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Minimum 8 characters" required>
+                <div id="passwordError" class="error"></div>
             </div>
-            
+
+            <!-- Confirm Password -->
             <div class="form-group">
-                <label for="confirmPassword">Confirm Password *</label>
-                <input type="password" id="confirmPassword" name="confirmPassword" required>
-                <div class="error" id="confirmPasswordError"></div>
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" placeholder="Repeat your password" required>
+                <div id="confirmPasswordError" class="error"></div>
             </div>
-            
+
+            <!-- Terms and Conditions -->
             <div class="form-group">
-                <input type="checkbox" id="terms" name="terms" required>
-                <label for="terms" style="display: inline; margin-left: 8px; margin-bottom: 0;">
-                    I agree to the Terms and Conditions *
-                </label>
-                <div class="error" id="termsError"></div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I agree to the Terms and Conditions</label>
+                </div>
+                <div id="termsError" class="error"></div>
             </div>
-            
-            <button type="submit" class="submit-btn">Create Account</button>
+
+            <!-- Submit Button -->
+            <button type="submit">Create Account</button>
         </form>
-        
-        <div class="login-link">
-            Already have an account? <a href="/login.html">Sign In</a>
-        </div>
     </div>
-    
+
     <script>
-        function checkPasswordStrength() {
-            const password = document.getElementById('password').value;
-            const strengthIndicator = document.getElementById('passwordStrength');
-            
-            let strength = 0;
-            let message = '';
-            let className = '';
-            
-            if (password.length >= 8) strength++;
-            if (password.match(/[a-z]/)) strength++;
-            if (password.match(/[A-Z]/)) strength++;
-            if (password.match(/[0-9]/)) strength++;
-            if (password.match(/[^a-zA-Z0-9]/)) strength++;
-            
-            if (strength <= 2) {
-                message = '🔴 Weak - Use 8+ chars, uppercase, lowercase, numbers, symbols';
-                className = 'weak';
-            } else if (strength <= 3) {
-                message = '🟡 Medium - Add variety (uppercase, numbers, symbols)';
-                className = 'medium';
-            } else {
-                message = '🟢 Strong password';
-                className = 'strong';
-            }
-            
-            strengthIndicator.textContent = message;
-            strengthIndicator.className = `password-strength ${className}`;
-        }
-        
         function validateForm() {
+            // Clear all error messages
+            const errorElements = document.querySelectorAll('.error');
+            errorElements.forEach(el => el.classList.remove('show'));
+
             let isValid = true;
-            document.querySelectorAll('.error').forEach(el => el.classList.remove('show'));
-            
+
+            // Validate First Name
             const firstName = document.getElementById('firstName').value.trim();
-            if (!firstName || firstName.length < 2) {
-                showError('firstNameError', 'First name required (min 2 chars)');
+            if (!firstName) {
+                showError('firstNameError', 'First name is required');
                 isValid = false;
             }
-            
+
+            // Validate Last Name
             const lastName = document.getElementById('lastName').value.trim();
-            if (!lastName || lastName.length < 2) {
-                showError('lastNameError', 'Last name required (min 2 chars)');
+            if (!lastName) {
+                showError('lastNameError', 'Last name is required');
                 isValid = false;
             }
-            
+
+            // Validate Email
             const email = document.getElementById('email').value.trim();
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!email || !emailRegex.test(email)) {
-                showError('emailError', 'Valid email required');
+                showError('emailError', 'Valid email is required');
                 isValid = false;
             }
-            
-            if (!document.getElementById('investmentType').value) {
-                showError('investmentTypeError', 'Investment type required');
+
+            // Validate Investment Type
+            const investmentType = document.getElementById('investmentType').value;
+            if (!investmentType) {
+                showError('investmentTypeError', 'Investment type is required');
                 isValid = false;
             }
-            
+
+            // Validate Investment Amount (minimum $50)
             const amount = parseFloat(document.getElementById('investmentAmount').value);
-            if (!amount || amount < 1000) {
-                showError('investmentAmountError', 'Minimum $1,000');
+            if (!amount || amount < 50) {
+                showError('investmentAmountError', 'Minimum $50');
                 isValid = false;
             }
-            
+
+            // Validate Password
             const password = document.getElementById('password').value;
             if (password.length < 8) {
                 showError('passwordError', 'Password min 8 characters');
                 isValid = false;
             }
-            
+
+            // Validate Confirm Password
             const confirmPassword = document.getElementById('confirmPassword').value;
             if (password !== confirmPassword) {
                 showError('confirmPasswordError', 'Passwords must match');
                 isValid = false;
             }
-            
+
+            // Validate Terms
             if (!document.getElementById('terms').checked) {
                 showError('termsError', 'Terms acceptance required');
                 isValid = false;
             }
-            
+
             return isValid;
         }
-        
+
         function showError(elementId, message) {
             const errorEl = document.getElementById(elementId);
             errorEl.textContent = message;
             errorEl.classList.add('show');
         }
-        
+
         function handleSubmit(event) {
             event.preventDefault();
-            
+
             if (!validateForm()) return;
-            
+
             const successMsg = document.getElementById('successMessage');
             successMsg.classList.add('show');
-            
+
             const formData = {
                 firstName: document.getElementById('firstName').value,
                 lastName: document.getElementById('lastName').value,
@@ -384,11 +318,11 @@
                 investmentAmount: document.getElementById('investmentAmount').value,
                 timestamp: new Date().toISOString()
             };
-            
+
             console.log('Registration:', formData);
-            
+
             event.target.querySelector('button').disabled = true;
-            
+
             setTimeout(() => {
                 alert('Success! Account created.\nEmail: ' + formData.email + '\nType: ' + formData.investmentType + '\nAmount: $' + formData.investmentAmount);
                 window.location.href = '/';
